@@ -9,7 +9,7 @@ requirements = [
 
 setup(
     name="deviceutils",
-    version="1.0.0",
+    version="1.0.1",
     author="BRUHItsABunny",
     author_email="",
     description="Android utilities all in one spot, python",
