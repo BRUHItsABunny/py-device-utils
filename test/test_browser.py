@@ -1,12 +1,11 @@
 import json
 import unittest
 
-import deviceutils
-from deviceutils import get_browser_headers
+from deviceutils.browser import get_random_browser, get_browser_headers
 
 
 class TestLocale(unittest.TestCase):
     def test_parse(self):
-        browser = deviceutils.get_random_browser()
+        browser = get_random_browser()
         print(browser)
         print(json.dumps(get_browser_headers(browser)))

@@ -1,9 +1,11 @@
 import random
 
-from deviceutils import AndroidDevice, new_device_id, get_random_location, SIMCardIMEI, randomize_simcard, \
-    generate_imei, MAC, AndroidDeviceBuildData, ScreenData, CPUDataArchitecture, CPUData, version_from_version_string, \
-    locale_from_string, version_to_version_string, locale_to_string
+from deviceutils import AndroidDevice, SIMCardIMEI, MAC, AndroidDeviceBuildData, ScreenData, CPUDataArchitecture, CPUData
+from deviceutils.android_device import new_device_id, version_from_version_string, version_to_version_string
 from deviceutils.android_device.db_android_devices import DB_DEVICES, AVAILABLE_DEVICES
+from deviceutils.locale import locale_from_string, locale_to_string
+from deviceutils.location import get_random_location
+from deviceutils.simcard import randomize_simcard, generate_imei
 
 
 def get_device_from_db(device_key: str) -> AndroidDevice:
