@@ -562,6 +562,40 @@ class Browser(betterproto.Message):
     user_agent: str = betterproto.string_field(3)
     brand_header: str = betterproto.string_field(4)
     tls_fingerprint: "BrowserTLSFingerprint" = betterproto.message_field(5)
+    # src: https://kaliiiiiiiiii.github.io/driverless-fp-collector/
+    app_code_name: str = betterproto.string_field(20)
+    app_name: str = betterproto.string_field(21)
+    app_version: str = betterproto.string_field(22)
+    cookie_enabled: bool = betterproto.bool_field(23)
+    device_memory: int = betterproto.int32_field(24)
+    do_not_track: int = betterproto.int32_field(25)
+    hardware_concurrency: int = betterproto.int32_field(26)
+    language: str = betterproto.string_field(27)
+    languages: List[str] = betterproto.string_field(28)
+    max_touch_points: int = betterproto.int32_field(29)
+    pdf_viewer_enabled: bool = betterproto.bool_field(30)
+    platform: str = betterproto.string_field(31)
+    product: str = betterproto.string_field(32)
+    product_sub: str = betterproto.string_field(33)
+    vendor: str = betterproto.string_field(34)
+    vendor_sub: str = betterproto.string_field(35)
+    webdriver: bool = betterproto.bool_field(36)
+    device_pixel_ratio: float = betterproto.double_field(37)
+    inner_width: int = betterproto.int32_field(38)
+    inner_height: int = betterproto.int32_field(39)
+    outer_width: int = betterproto.int32_field(40)
+    outer_height: int = betterproto.int32_field(41)
+    screen: "BrowserBrowserScreen" = betterproto.message_field(42)
+    web_g_p_u: "BrowserWebGPU" = betterproto.message_field(43)
+    speech_synthesis: List["BrowserSpeechSynthesis"] = betterproto.message_field(44)
+    available_fonts: "BrowserBrowserCollection" = betterproto.message_field(100)
+    navigator: "BrowserBrowserCollection" = betterproto.message_field(101)
+    window: "BrowserBrowserCollection" = betterproto.message_field(102)
+    document: "BrowserBrowserCollection" = betterproto.message_field(103)
+    document_element: "BrowserBrowserCollection" = betterproto.message_field(104)
+    audio_types: "BrowserBrowserCollection" = betterproto.message_field(105)
+    video_types: "BrowserBrowserCollection" = betterproto.message_field(106)
+    css: "BrowserBrowserCollection" = betterproto.message_field(107)
 
 
 @dataclass
@@ -575,6 +609,95 @@ class BrowserTLSFingerprint(betterproto.Message):
     elliptic_curve_point_formats: List[
         "BrowserTLSFingerprintEllipticCurvePointFormat"
     ] = betterproto.enum_field(5)
+
+
+@dataclass
+class BrowserBrowserCollection(betterproto.Message):
+    hash: str = betterproto.string_field(1)
+    list_data: List[str] = betterproto.string_field(2)
+    map_data: Dict[str, str] = betterproto.map_field(
+        3, betterproto.TYPE_STRING, betterproto.TYPE_STRING
+    )
+
+
+@dataclass
+class BrowserBrowserScreen(betterproto.Message):
+    avail_width: int = betterproto.int32_field(1)
+    avail_height: int = betterproto.int32_field(2)
+    width: int = betterproto.int32_field(3)
+    height: int = betterproto.int32_field(4)
+    color_depth: int = betterproto.int32_field(5)
+    pixel_depth: int = betterproto.int32_field(6)
+    avail_left: int = betterproto.int32_field(7)
+    avail_top: int = betterproto.int32_field(8)
+    is_extended: bool = betterproto.bool_field(9)
+    orientation: "BrowserBrowserScreenOrientation" = betterproto.message_field(10)
+
+
+@dataclass
+class BrowserBrowserScreenOrientation(betterproto.Message):
+    angle: int = betterproto.int32_field(1)
+    type: str = betterproto.string_field(2)
+
+
+@dataclass
+class BrowserWebGPU(betterproto.Message):
+    features: "BrowserWebGPUFeatures" = betterproto.message_field(1)
+    limits: "BrowserWebGPULimits" = betterproto.message_field(2)
+    is_fallback_adapter: bool = betterproto.bool_field(3)
+    vendor: str = betterproto.string_field(4)
+    architecture: str = betterproto.string_field(5)
+    device: str = betterproto.string_field(6)
+    description: str = betterproto.string_field(7)
+
+
+@dataclass
+class BrowserWebGPUFeatures(betterproto.Message):
+    size: int = betterproto.int32_field(1)
+
+
+@dataclass
+class BrowserWebGPULimits(betterproto.Message):
+    max_texture_dimension1_d: int = betterproto.int32_field(1)
+    max_texture_dimension2_d: int = betterproto.int32_field(2)
+    max_texture_dimension3_d: int = betterproto.int32_field(3)
+    max_texture_array_layers: int = betterproto.int32_field(4)
+    max_bind_groups: int = betterproto.int32_field(5)
+    max_bindings_per_bind_group: int = betterproto.int32_field(6)
+    max_dynamic_uniform_buffers_per_pipeline_layout: int = betterproto.int32_field(7)
+    max_dynamic_storage_buffers_per_pipeline_layout: int = betterproto.int32_field(8)
+    max_sampled_textures_per_shader_stage: int = betterproto.int32_field(9)
+    max_samplers_per_shader_stage: int = betterproto.int32_field(10)
+    max_storage_buffers_per_shader_stage: int = betterproto.int32_field(11)
+    max_storage_textures_per_shader_stage: int = betterproto.int32_field(12)
+    max_uniform_buffers_per_shader_stage: int = betterproto.int32_field(13)
+    max_uniform_buffer_binding_size: int = betterproto.int32_field(14)
+    max_storage_buffer_binding_size: int = betterproto.int32_field(15)
+    min_uniform_buffer_offset_alignment: int = betterproto.int32_field(16)
+    min_storage_buffer_offset_alignment: int = betterproto.int32_field(17)
+    max_vertex_buffers: int = betterproto.int32_field(18)
+    max_buffer_size: int = betterproto.int32_field(19)
+    max_vertex_attributes: int = betterproto.int32_field(20)
+    max_vertex_buffer_array_stride: int = betterproto.int32_field(21)
+    max_inter_stage_shader_components: int = betterproto.int32_field(22)
+    max_inter_stage_shader_variables: int = betterproto.int32_field(23)
+    max_color_attachments: int = betterproto.int32_field(24)
+    max_color_attachment_bytes_per_sample: int = betterproto.int32_field(25)
+    max_compute_workgroup_storage_size: int = betterproto.int32_field(26)
+    max_compute_invocations_per_workgroup: int = betterproto.int32_field(27)
+    max_compute_workgroup_size_x: int = betterproto.int32_field(28)
+    max_compute_workgroup_size_y: int = betterproto.int32_field(29)
+    max_compute_workgroup_size_z: int = betterproto.int32_field(30)
+    max_compute_workgroups_per_dimension: int = betterproto.int32_field(31)
+
+
+@dataclass
+class BrowserSpeechSynthesis(betterproto.Message):
+    voice_u_r_i: str = betterproto.string_field(1)
+    name: str = betterproto.string_field(2)
+    lang: str = betterproto.string_field(3)
+    local_service: bool = betterproto.bool_field(4)
+    default: bool = betterproto.bool_field(5)
 
 
 @dataclass
