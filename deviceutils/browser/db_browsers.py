@@ -106,11 +106,37 @@ DB_BROWSERS = {
             )
         ),
     },
+    "safari": {
+        "18615.1.26.11.22": Browser(
+            version="18615.1.26.11.22",
+            name="safari",
+            user_agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            tls_fingerprint=BrowserTLSFingerprint(
+                version=BrowserTLSFingerprintProtocolVersion.TLS1_2,
+                cipher_suites=[
+                    4865, 4866, 4867, 49195, 49199, 49196, 49200, 52393, 52392, 49171, 49172, 156, 157, 47, 53
+                ],
+                extensions=[
+                    27, 16, 35, 11, 17513, 43, 13, 5, 23, 0, 18, 51, 10, 65281, 45, 21
+                ],
+                elliptic_curves=[
+                    BrowserTLSFingerprintEllipticCurve(29),
+                    BrowserTLSFingerprintEllipticCurve(23),
+                    BrowserTLSFingerprintEllipticCurve(24)
+                ],
+                elliptic_curve_point_formats=[
+                    BrowserTLSFingerprintEllipticCurvePointFormat(0)
+                ]
+            )
+        ),
+    }
 }
+
 
 AVAILABLE_BROWSERS = [
     "brave",
     "chrome",
     "firefox",
-    "opera"
+    "opera",
+    "safari"
 ]
