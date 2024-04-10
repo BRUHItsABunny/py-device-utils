@@ -2,7 +2,7 @@ from deviceutils import Locale
 
 
 def get_country_from_locale(locale: Locale, iso: bool = True) -> str:
-    country = locale.country_i_s_o
+    country = locale.country_iso
     if iso:
         return country.upper()
     return country.lower()

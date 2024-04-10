@@ -1,11 +1,11 @@
 import os
 
-from deviceutils import MAC
+from deviceutils import Mac
 
 
-def randomize_mac_address(mac: MAC, oui: str, multi_cast: bool, uua: bool):
+def randomize_mac_address(mac: Mac, oui: str, multi_cast: bool, uua: bool):
     if oui == "":
-        oui = mac.o_u_i
+        oui = mac.oui
     mac_bytes = bytearray(os.urandom(6))
     if multi_cast:
         mac_bytes[0] |= 0

@@ -29,7 +29,12 @@ RUN protoc --version
 # Setup Python environment
 WORKDIR /proto
 RUN pip install protobuf==4.21.8 mypy-protobuf==3.4.0 types-protobuf==4.22.0.2
-RUN pip install betterproto[compiler]
+RUN pip install git+https://github.com/ii64/python-betterproto.git#egg=betterproto
+RUN pip install black isort jinja2
+ENV PATH="/usr/local/bin:${PATH}"
+RUN chmod +x /usr/local/bin/protoc-gen-python_betterproto
+RUN which protoc-gen-python_betterproto
+RUN protoc-gen-python_betterproto --version
 
 # Copy our repo
 COPY . ./
@@ -39,7 +44,8 @@ ENV PROTO_INC "-I ./ \
   -I ../ \
   -I ../../"
 
-ENV PROTOC_CMD "protoc ${PROTO_INC} --python_betterproto_out=. ./*.proto"
+ENV PROTOC_CMD "protoc ${PROTO_INC} --python_betterproto_opt=pydantic_dataclasses,useOptionals=all --python_betterproto_out=. ./*.proto"
+
 # Generate
 RUN ls -R /proto
 RUN cd /proto/proto-device-utils/ && ${PROTOC_CMD}

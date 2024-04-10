@@ -1,9 +1,9 @@
-from deviceutils import AndroidDevice, Locale, AndroidDeviceVersion, AndroidDeviceBuildData, ScreenData, SIMCard, \
-	SIMCardIMEI, MAC, CPUData, CPUDataArchitecture
+from deviceutils import AndroidDevice, Locale, AndroidDeviceVersion, AndroidDeviceBuildData, ScreenData, SimCard, \
+	SimCardImei, Mac, CpuData, CpuDataArchitecture
 
 DB_DEVICES = {
 	"oneplus5": AndroidDevice(
-		locale=Locale(language="en", country_i_s_o="US"),
+		locale=Locale(language="en", country_iso="US"),
 		version=AndroidDeviceVersion.V9_0,
 		build=AndroidDeviceBuildData(
 			device="OnePlus5",
@@ -21,14 +21,14 @@ DB_DEVICES = {
 			resolution_vertical=1920
 		),
 		sim_slots=[
-			SIMCard(imei=SIMCardIMEI(t_a_c="86463003")),
-			SIMCard(imei=SIMCardIMEI(t_a_c="86463003"))
+			SimCard(imei=SimCardImei(tac="86463003")),
+			SimCard(imei=SimCardImei(tac="86463003"))
 		],
-		mac_address=MAC(o_u_i="A091A2"),
-		cpu=CPUData(arch=CPUDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
+		mac_address=Mac(oui="A091A2"),
+		cpu=CpuData(arch=CpuDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
 	),
 	"oneplus7t": AndroidDevice(
-		locale=Locale(language="en", country_i_s_o="US"),
+		locale=Locale(language="en", country_iso="US"),
 		version=AndroidDeviceVersion.V10_0,
 		build=AndroidDeviceBuildData(
 			device="OnePlus7T",
@@ -46,14 +46,14 @@ DB_DEVICES = {
 			resolution_vertical=2400
 		),
 		sim_slots=[
-			SIMCard(imei=SIMCardIMEI(t_a_c="86789104")),
-			SIMCard(imei=SIMCardIMEI(t_a_c="86789104"))
+			SimCard(imei=SimCardImei(tac="86789104")),
+			SimCard(imei=SimCardImei(tac="86789104"))
 		],
-		mac_address=MAC(o_u_i="A091A2"),
-		cpu=CPUData(arch=CPUDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
+		mac_address=Mac(oui="A091A2"),
+		cpu=CpuData(arch=CpuDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
 	),
 	"oneplus9pro": AndroidDevice(
-		locale=Locale(language="en", country_i_s_o="US"),
+		locale=Locale(language="en", country_iso="US"),
 		version=AndroidDeviceVersion.V11_0,
 		build=AndroidDeviceBuildData(
 			device="OnePlus9Pro",
@@ -71,10 +71,10 @@ DB_DEVICES = {
 			resolution_vertical=3216
 		),
 		sim_slots=[
-			SIMCard(imei=SIMCardIMEI(t_a_c="86381505"))
+			SimCard(imei=SimCardImei(tac="86381505"))
 		],
-		mac_address=MAC(o_u_i="A091A2"),
-		cpu=CPUData(arch=CPUDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
+		mac_address=Mac(oui="A091A2"),
+		cpu=CpuData(arch=CpuDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
 	),
 }
 
