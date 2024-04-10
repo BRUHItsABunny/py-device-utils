@@ -5,7 +5,7 @@ with open("README.md", "r") as readme_file:
 
 requirements = [
     "betterproto @ git+https://github.com/ii64/python-betterproto.git#egg=betterproto",
-    "grpclib~=0.4.7"
+    "grpclib~=0.4.7",
     "pydantic>=1.8.0,<2"
 ]
 
