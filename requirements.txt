@@ -1,2 +1,3 @@
 setuptools~=60.2.0
-betterproto~=1.2.5
+betterproto @ git+https://github.com/ii64/python-betterproto.git#egg=betterproto
+pydantic>=1.8.0,<2

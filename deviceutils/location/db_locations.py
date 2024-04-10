@@ -1,64 +1,64 @@
-from deviceutils import GPSLocation, GPSLocationLocationProvider
+from deviceutils import GpsLocation, GpsLocationLocationProvider
 
 LOCATION_DB = {
     "US": {
-        "newyorkcity": GPSLocation(
+        "newyorkcity": GpsLocation(
             longitude=-74.005973,
             latitude=40.712775,
             altitude=10.440,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         ),
-        "losangeles": GPSLocation(
+        "losangeles": GpsLocation(
             longitude=-118.243685,
             latitude=34.052234,
             altitude=86.854,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         ),
-        "chicago": GPSLocation(
+        "chicago": GpsLocation(
             longitude=-87.629798,
             latitude=41.878114,
             altitude=181.513,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         ),
-        "houston": GPSLocation(
+        "houston": GpsLocation(
             longitude=-95.369803,
             latitude=29.760427,
             altitude=14.562,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         ),
-        "washington": GPSLocation(
+        "washington": GpsLocation(
             longitude=-77.036871,
             latitude=38.907192,
             altitude=22.015,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         ),
-        "philadelphia": GPSLocation(
+        "philadelphia": GpsLocation(
             longitude=-75.165222,
             latitude=39.952584,
             altitude=14.336,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         ),
-        "miami": GPSLocation(
+        "miami": GpsLocation(
             longitude=-80.191790,
             latitude=25.761680,
             altitude=0.537,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         )
     },
     "MX": {
-        "mexicocity": GPSLocation(
+        "mexicocity": GpsLocation(
             longitude=-99.133208,
             latitude=19.432608,
             altitude=2229.729,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         )
     },
     "CA": {
-        "torronto": GPSLocation(
+        "torronto": GpsLocation(
             longitude=-79.383184,
             latitude=43.653226,
             altitude=91.723,
-            provider=GPSLocationLocationProvider.LocationProvider_NONE,
+            provider=GpsLocationLocationProvider.LocationProvider_NONE,
         )
     }
 }

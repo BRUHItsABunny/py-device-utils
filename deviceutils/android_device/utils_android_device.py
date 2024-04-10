@@ -1,6 +1,6 @@
 import random
 
-from deviceutils import AndroidDevice, SIMCardIMEI, MAC, AndroidDeviceBuildData, ScreenData, CPUDataArchitecture, CPUData
+from deviceutils import AndroidDevice, SimCardImei, Mac, AndroidDeviceBuildData, ScreenData, CpuDataArchitecture, CpuData
 from deviceutils.android_device import new_device_id, version_from_version_string, version_to_version_string
 from deviceutils.android_device.db_android_devices import DB_DEVICES, AVAILABLE_DEVICES
 from deviceutils.locale import locale_from_string, locale_to_string
@@ -12,14 +12,14 @@ def get_device_from_db(device_key: str) -> AndroidDevice:
     device: AndroidDevice = DB_DEVICES[device_key]
     # randomize factors
     device.id = new_device_id()
-    device.location = get_random_location(device.locale.country_i_s_o)
+    device.location = get_random_location(device.locale.country_iso)
     for sim in device.sim_slots:
-        randomize_simcard(sim, device.locale.country_i_s_o)
+        randomize_simcard(sim, device.locale.country_iso)
         if sim.imei is None:
-            sim.imei = SIMCardIMEI()
+            sim.imei = SimCardImei()
         generate_imei(sim.imei, "", "")
     if device.mac_address is None:
-        device.mac_address = MAC()
+        device.mac_address = Mac()
     return device
 
 
@@ -27,14 +27,14 @@ def get_random_device() -> AndroidDevice:
     device: AndroidDevice = DB_DEVICES[random.choice(AVAILABLE_DEVICES)]
     # randomize factors
     device.id = new_device_id()
-    device.location = get_random_location(device.locale.country_i_s_o)
+    device.location = get_random_location(device.locale.country_iso)
     for sim in device.sim_slots:
-        randomize_simcard(sim, device.locale.country_i_s_o)
+        randomize_simcard(sim, device.locale.country_iso)
         if sim.imei is None:
-            sim.imei = SIMCardIMEI()
+            sim.imei = SimCardImei()
         generate_imei(sim.imei, "", "")
     if device.mac_address is None:
-        device.mac_address = MAC()
+        device.mac_address = Mac()
     return device
 
 
@@ -42,7 +42,7 @@ def device_from_fingerprint(fingerprint: str) -> AndroidDevice:
     device = AndroidDevice()
     device.build = AndroidDeviceBuildData()
     device.screen = ScreenData()
-    device.cpu = CPUData(arch=CPUDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
+    device.cpu = CpuData(arch=CpuDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
 
     main_parts = fingerprint.split("/")
     device.build.manufacturer = main_parts[0]
@@ -64,7 +64,7 @@ def device_from_user_agent(user_agent: str) -> AndroidDevice:
     device = AndroidDevice()
     device.build = AndroidDeviceBuildData()
     device.screen = ScreenData()
-    device.cpu = CPUData(arch=CPUDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
+    device.cpu = CpuData(arch=CpuDataArchitecture.ARM64, abi_list=["arm64-v8a", "armeabi-v7a", "armeabi"])
 
     index_start = user_agent.index("(")
     index_stop = user_agent.index(")")

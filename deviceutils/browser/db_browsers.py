@@ -1,5 +1,5 @@
-from deviceutils import Browser, BrowserTLSFingerprint, BrowserTLSFingerprintProtocolVersion, \
-    BrowserTLSFingerprintEllipticCurvePointFormat, BrowserTLSFingerprintEllipticCurve
+from deviceutils import Browser, BrowserTlsFingerprint, BrowserTlsFingerprintProtocolVersion, \
+    BrowserTlsFingerprintEllipticCurvePointFormat, BrowserTlsFingerprintEllipticCurve
 
 DB_BROWSERS = {
     "brave": {
@@ -9,8 +9,8 @@ DB_BROWSERS = {
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
                        "Chrome/112.0.0.0 Safari/537.36",
             brand_header="\"Chromium\";v=\"112\", \"Brave\";v=\"112\", \"Not:A-Brand\";v=\"99\"",
-            tls_fingerprint=BrowserTLSFingerprint(
-                version=BrowserTLSFingerprintProtocolVersion.TLS1_2,
+            tls_fingerprint=BrowserTlsFingerprint(
+                version=BrowserTlsFingerprintProtocolVersion.TLS1_2,
                 cipher_suites=[
                     4865, 4866, 4867, 49195, 49199, 49196, 49200, 52393, 52392, 49171, 49172, 156, 157, 47, 53
                 ],
@@ -18,12 +18,12 @@ DB_BROWSERS = {
                     27, 16, 35, 11, 17513, 43, 13, 5, 23, 0, 18, 51, 10, 65281, 45, 21
                 ],
                 elliptic_curves=[
-                    BrowserTLSFingerprintEllipticCurve(29),
-                    BrowserTLSFingerprintEllipticCurve(23),
-                    BrowserTLSFingerprintEllipticCurve(24)
+                    BrowserTlsFingerprintEllipticCurve(29),
+                    BrowserTlsFingerprintEllipticCurve(23),
+                    BrowserTlsFingerprintEllipticCurve(24)
                 ],
                 elliptic_curve_point_formats=[
-                    BrowserTLSFingerprintEllipticCurvePointFormat(0)
+                    BrowserTlsFingerprintEllipticCurvePointFormat(0)
                 ]
             )
         ),
@@ -35,8 +35,8 @@ DB_BROWSERS = {
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
                        "Chrome/112.0.0.0 Safari/537.36",
             brand_header="\"Chromium\";v=\"112\", \"Google Chrome\";v=\"112\", \"Not:A-Brand\";v=\"99\"",
-            tls_fingerprint=BrowserTLSFingerprint(
-                version=BrowserTLSFingerprintProtocolVersion.TLS1_2,
+            tls_fingerprint=BrowserTlsFingerprint(
+                version=BrowserTlsFingerprintProtocolVersion.TLS1_2,
                 cipher_suites=[
                     4865, 4866, 4867, 49195, 49199, 49196, 49200, 52393, 52392, 49171, 49172, 156, 157, 47, 53
                 ],
@@ -44,12 +44,12 @@ DB_BROWSERS = {
                     27, 16, 35, 11, 17513, 43, 13, 5, 23, 0, 18, 51, 10, 65281, 45, 21
                 ],
                 elliptic_curves=[
-                    BrowserTLSFingerprintEllipticCurve(29),
-                    BrowserTLSFingerprintEllipticCurve(23),
-                    BrowserTLSFingerprintEllipticCurve(24)
+                    BrowserTlsFingerprintEllipticCurve(29),
+                    BrowserTlsFingerprintEllipticCurve(23),
+                    BrowserTlsFingerprintEllipticCurve(24)
                 ],
                 elliptic_curve_point_formats=[
-                    BrowserTLSFingerprintEllipticCurvePointFormat(0)
+                    BrowserTlsFingerprintEllipticCurvePointFormat(0)
                 ]
             )
         ),
@@ -59,8 +59,8 @@ DB_BROWSERS = {
             version="111.0.1",
             name="firefox",
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0",
-            tls_fingerprint=BrowserTLSFingerprint(
-                version=BrowserTLSFingerprintProtocolVersion.TLS1_2,
+            tls_fingerprint=BrowserTlsFingerprint(
+                version=BrowserTlsFingerprintProtocolVersion.TLS1_2,
                 cipher_suites=[
                     4865, 4867, 4866, 49195, 49199, 52393, 52392, 49196, 49200, 49162, 49161, 49171, 49172, 156, 157, 47, 53
                 ],
@@ -68,14 +68,14 @@ DB_BROWSERS = {
                     0, 23, 65281, 10, 11, 16, 5, 34, 51, 43, 13, 45, 28, 41
                 ],
                 elliptic_curves=[
-                    BrowserTLSFingerprintEllipticCurve(29),
-                    BrowserTLSFingerprintEllipticCurve(23),
-                    BrowserTLSFingerprintEllipticCurve(24),
-                    BrowserTLSFingerprintEllipticCurve(256),
-                    BrowserTLSFingerprintEllipticCurve(257),
+                    BrowserTlsFingerprintEllipticCurve(29),
+                    BrowserTlsFingerprintEllipticCurve(23),
+                    BrowserTlsFingerprintEllipticCurve(24),
+                    BrowserTlsFingerprintEllipticCurve(256),
+                    BrowserTlsFingerprintEllipticCurve(257),
                 ],
                 elliptic_curve_point_formats=[
-                    BrowserTLSFingerprintEllipticCurvePointFormat(0)
+                    BrowserTlsFingerprintEllipticCurvePointFormat(0)
                 ]
             )
         ),
@@ -87,8 +87,8 @@ DB_BROWSERS = {
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
                        "Chrome/111.0.0.0 Safari/537.36 OPR/97.0.0.0",
             brand_header="\"Chromium\";v=\"112\", \"Not_A Brand\";v=\"24\", \"Opera\";v=\"98\"",
-            tls_fingerprint=BrowserTLSFingerprint(
-                version=BrowserTLSFingerprintProtocolVersion.TLS1_2,
+            tls_fingerprint=BrowserTlsFingerprint(
+                version=BrowserTlsFingerprintProtocolVersion.TLS1_2,
                 cipher_suites=[
                     4865, 4866, 4867, 49195, 49199, 49196, 49200, 52393, 52392, 49171, 49172, 156, 157, 47, 53
                 ],
@@ -96,12 +96,12 @@ DB_BROWSERS = {
                     13, 16, 17513, 35, 65281, 43, 0, 10, 45, 23, 11, 27, 5, 51, 18, 21, 41,29, 23, 24
                 ],
                 elliptic_curves=[
-                    BrowserTLSFingerprintEllipticCurve(29),
-                    BrowserTLSFingerprintEllipticCurve(23),
-                    BrowserTLSFingerprintEllipticCurve(24)
+                    BrowserTlsFingerprintEllipticCurve(29),
+                    BrowserTlsFingerprintEllipticCurve(23),
+                    BrowserTlsFingerprintEllipticCurve(24)
                 ],
                 elliptic_curve_point_formats=[
-                    BrowserTLSFingerprintEllipticCurvePointFormat(0)
+                    BrowserTlsFingerprintEllipticCurvePointFormat(0)
                 ]
             )
         ),
