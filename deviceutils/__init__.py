@@ -599,44 +599,82 @@ class AndroidDeviceVersion(betterproto.Enum):
 class Browser(betterproto.Message):
     version: Optional[str] = betterproto.string_field(1, optional=True)
     name: Optional[str] = betterproto.string_field(2, optional=True)
-    user_agent: Optional[str] = betterproto.string_field(3, optional=True)
-    brand_header: Optional[str] = betterproto.string_field(4, optional=True)
-    tls_fingerprint: Optional["BrowserTlsFingerprint"] = betterproto.message_field(
-        5, optional=True
+    user_agent: Optional[str] = betterproto.string_field(
+        3, optional=True, name="userAgent"
     )
-    app_code_name: Optional[str] = betterproto.string_field(20, optional=True)
+    brand_header: Optional[str] = betterproto.string_field(
+        4, optional=True, name="brandHeader"
+    )
+    tls_fingerprint: Optional["BrowserTlsFingerprint"] = betterproto.message_field(
+        5, optional=True, name="tlsFingerprint"
+    )
+    app_code_name: Optional[str] = betterproto.string_field(
+        20, optional=True, name="appCodeName"
+    )
     """src: https://kaliiiiiiiiii.github.io/driverless-fp-collector/"""
 
-    app_name: Optional[str] = betterproto.string_field(21, optional=True)
-    app_version: Optional[str] = betterproto.string_field(22, optional=True)
-    cookie_enabled: Optional[bool] = betterproto.bool_field(23, optional=True)
-    device_memory: Optional[int] = betterproto.int32_field(24, optional=True)
-    do_not_track: Optional[int] = betterproto.int32_field(25, optional=True)
-    hardware_concurrency: Optional[int] = betterproto.int32_field(26, optional=True)
+    app_name: Optional[str] = betterproto.string_field(
+        21, optional=True, name="appName"
+    )
+    app_version: Optional[str] = betterproto.string_field(
+        22, optional=True, name="appVersion"
+    )
+    cookie_enabled: Optional[bool] = betterproto.bool_field(
+        23, optional=True, name="cookieEnabled"
+    )
+    device_memory: Optional[int] = betterproto.int32_field(
+        24, optional=True, name="deviceMemory"
+    )
+    do_not_track: Optional[int] = betterproto.int32_field(
+        25, optional=True, name="doNotTrack"
+    )
+    hardware_concurrency: Optional[int] = betterproto.int32_field(
+        26, optional=True, name="hardwareConcurrency"
+    )
     language: Optional[str] = betterproto.string_field(27, optional=True)
-    languages: List[str] = betterproto.string_field(28, optional=True)
-    max_touch_points: Optional[int] = betterproto.int32_field(29, optional=True)
-    pdf_viewer_enabled: Optional[bool] = betterproto.bool_field(30, optional=True)
+    languages: Optional[List[str]] = betterproto.string_field(28, optional=True)
+    max_touch_points: Optional[int] = betterproto.int32_field(
+        29, optional=True, name="maxTouchPoints"
+    )
+    pdf_viewer_enabled: Optional[bool] = betterproto.bool_field(
+        30, optional=True, name="pdfViewerEnabled"
+    )
     platform: Optional[str] = betterproto.string_field(31, optional=True)
     product: Optional[str] = betterproto.string_field(32, optional=True)
-    product_sub: Optional[str] = betterproto.string_field(33, optional=True)
+    product_sub: Optional[str] = betterproto.string_field(
+        33, optional=True, name="productSub"
+    )
     vendor: Optional[str] = betterproto.string_field(34, optional=True)
-    vendor_sub: Optional[str] = betterproto.string_field(35, optional=True)
+    vendor_sub: Optional[str] = betterproto.string_field(
+        35, optional=True, name="vendorSub"
+    )
     webdriver: Optional[bool] = betterproto.bool_field(36, optional=True)
-    device_pixel_ratio: Optional[float] = betterproto.double_field(37, optional=True)
-    inner_width: Optional[int] = betterproto.int32_field(38, optional=True)
-    inner_height: Optional[int] = betterproto.int32_field(39, optional=True)
-    outer_width: Optional[int] = betterproto.int32_field(40, optional=True)
-    outer_height: Optional[int] = betterproto.int32_field(41, optional=True)
+    device_pixel_ratio: Optional[float] = betterproto.double_field(
+        37, optional=True, name="devicePixelRatio"
+    )
+    inner_width: Optional[int] = betterproto.int32_field(
+        38, optional=True, name="innerWidth"
+    )
+    inner_height: Optional[int] = betterproto.int32_field(
+        39, optional=True, name="innerHeight"
+    )
+    outer_width: Optional[int] = betterproto.int32_field(
+        40, optional=True, name="outerWidth"
+    )
+    outer_height: Optional[int] = betterproto.int32_field(
+        41, optional=True, name="outerHeight"
+    )
     screen: Optional["BrowserBrowserScreen"] = betterproto.message_field(
         42, optional=True
     )
-    web_gpu: Optional["BrowserWebGpu"] = betterproto.message_field(43, optional=True)
-    speech_synthesis: List["BrowserSpeechSynthesis"] = betterproto.message_field(
-        44, optional=True
+    web_gpu: Optional["BrowserWebGpu"] = betterproto.message_field(
+        43, optional=True, name="webGPU"
+    )
+    speech_synthesis: Optional[List["BrowserSpeechSynthesis"]] = (
+        betterproto.message_field(44, optional=True, name="speechSynthesis")
     )
     available_fonts: Optional["BrowserBrowserCollection"] = betterproto.message_field(
-        100, optional=True
+        100, optional=True, name="availableFonts"
     )
     navigator: Optional["BrowserBrowserCollection"] = betterproto.message_field(
         101, optional=True
@@ -648,13 +686,13 @@ class Browser(betterproto.Message):
         103, optional=True
     )
     document_element: Optional["BrowserBrowserCollection"] = betterproto.message_field(
-        104, optional=True
+        104, optional=True, name="documentElement"
     )
     audio_types: Optional["BrowserBrowserCollection"] = betterproto.message_field(
-        105, optional=True
+        105, optional=True, name="audioTypes"
     )
     video_types: Optional["BrowserBrowserCollection"] = betterproto.message_field(
-        106, optional=True
+        106, optional=True, name="videoTypes"
     )
     css: Optional["BrowserBrowserCollection"] = betterproto.message_field(
         107, optional=True
@@ -666,40 +704,56 @@ class BrowserTlsFingerprint(betterproto.Message):
     version: Optional["BrowserTlsFingerprintProtocolVersion"] = betterproto.enum_field(
         1, optional=True
     )
-    cipher_suites: List["BrowserTlsFingerprintCipherSuite"] = betterproto.enum_field(
-        2, optional=True
+    cipher_suites: Optional[List["BrowserTlsFingerprintCipherSuite"]] = (
+        betterproto.enum_field(2, optional=True, name="cipherSuites")
     )
-    extensions: List["BrowserTlsFingerprintExtensions"] = betterproto.enum_field(
-        3, optional=True
+    extensions: Optional[List["BrowserTlsFingerprintExtensions"]] = (
+        betterproto.enum_field(3, optional=True)
     )
-    elliptic_curves: List["BrowserTlsFingerprintEllipticCurve"] = (
-        betterproto.enum_field(4, optional=True)
+    elliptic_curves: Optional[List["BrowserTlsFingerprintEllipticCurve"]] = (
+        betterproto.enum_field(4, optional=True, name="ellipticCurves")
     )
-    elliptic_curve_point_formats: List[
-        "BrowserTlsFingerprintEllipticCurvePointFormat"
-    ] = betterproto.enum_field(5, optional=True)
+    elliptic_curve_point_formats: Optional[
+        List["BrowserTlsFingerprintEllipticCurvePointFormat"]
+    ] = betterproto.enum_field(5, optional=True, name="ellipticCurvePointFormats")
 
 
 @dataclass(eq=False, repr=False)
 class BrowserBrowserCollection(betterproto.Message):
     hash: Optional[str] = betterproto.string_field(1, optional=True)
-    list_data: List[str] = betterproto.string_field(2, optional=True)
-    map_data: Dict[str, str] = betterproto.map_field(
-        3, betterproto.TYPE_STRING, betterproto.TYPE_STRING
+    list_data: Optional[List[str]] = betterproto.string_field(
+        2, optional=True, name="listData"
+    )
+    map_data: Optional[Dict[str, str]] = betterproto.map_field(
+        3, betterproto.TYPE_STRING, betterproto.TYPE_STRING, optional=True
     )
 
 
 @dataclass(eq=False, repr=False)
 class BrowserBrowserScreen(betterproto.Message):
-    avail_width: Optional[int] = betterproto.int32_field(1, optional=True)
-    avail_height: Optional[int] = betterproto.int32_field(2, optional=True)
+    avail_width: Optional[int] = betterproto.int32_field(
+        1, optional=True, name="availWidth"
+    )
+    avail_height: Optional[int] = betterproto.int32_field(
+        2, optional=True, name="availHeight"
+    )
     width: Optional[int] = betterproto.int32_field(3, optional=True)
     height: Optional[int] = betterproto.int32_field(4, optional=True)
-    color_depth: Optional[int] = betterproto.int32_field(5, optional=True)
-    pixel_depth: Optional[int] = betterproto.int32_field(6, optional=True)
-    avail_left: Optional[int] = betterproto.int32_field(7, optional=True)
-    avail_top: Optional[int] = betterproto.int32_field(8, optional=True)
-    is_extended: Optional[bool] = betterproto.bool_field(9, optional=True)
+    color_depth: Optional[int] = betterproto.int32_field(
+        5, optional=True, name="colorDepth"
+    )
+    pixel_depth: Optional[int] = betterproto.int32_field(
+        6, optional=True, name="pixelDepth"
+    )
+    avail_left: Optional[int] = betterproto.int32_field(
+        7, optional=True, name="availLeft"
+    )
+    avail_top: Optional[int] = betterproto.int32_field(
+        8, optional=True, name="availTop"
+    )
+    is_extended: Optional[bool] = betterproto.bool_field(
+        9, optional=True, name="isExtended"
+    )
     orientation: Optional["BrowserBrowserScreenOrientation"] = (
         betterproto.message_field(10, optional=True)
     )
@@ -719,7 +773,9 @@ class BrowserWebGpu(betterproto.Message):
     limits: Optional["BrowserWebGpuLimits"] = betterproto.message_field(
         2, optional=True
     )
-    is_fallback_adapter: Optional[bool] = betterproto.bool_field(3, optional=True)
+    is_fallback_adapter: Optional[bool] = betterproto.bool_field(
+        3, optional=True, name="isFallbackAdapter"
+    )
     vendor: Optional[str] = betterproto.string_field(4, optional=True)
     architecture: Optional[str] = betterproto.string_field(5, optional=True)
     device: Optional[str] = betterproto.string_field(6, optional=True)
@@ -733,89 +789,115 @@ class BrowserWebGpuFeatures(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class BrowserWebGpuLimits(betterproto.Message):
-    max_texture_dimension1_d: Optional[int] = betterproto.int32_field(1, optional=True)
-    max_texture_dimension2_d: Optional[int] = betterproto.int32_field(2, optional=True)
-    max_texture_dimension3_d: Optional[int] = betterproto.int32_field(3, optional=True)
-    max_texture_array_layers: Optional[int] = betterproto.int32_field(4, optional=True)
-    max_bind_groups: Optional[int] = betterproto.int32_field(5, optional=True)
+    max_texture_dimension1_d: Optional[int] = betterproto.int32_field(
+        1, optional=True, name="maxTextureDimension1D"
+    )
+    max_texture_dimension2_d: Optional[int] = betterproto.int32_field(
+        2, optional=True, name="maxTextureDimension2D"
+    )
+    max_texture_dimension3_d: Optional[int] = betterproto.int32_field(
+        3, optional=True, name="maxTextureDimension3D"
+    )
+    max_texture_array_layers: Optional[int] = betterproto.int32_field(
+        4, optional=True, name="maxTextureArrayLayers"
+    )
+    max_bind_groups: Optional[int] = betterproto.int32_field(
+        5, optional=True, name="maxBindGroups"
+    )
     max_bindings_per_bind_group: Optional[int] = betterproto.int32_field(
-        6, optional=True
+        6, optional=True, name="maxBindingsPerBindGroup"
     )
     max_dynamic_uniform_buffers_per_pipeline_layout: Optional[int] = (
-        betterproto.int32_field(7, optional=True)
+        betterproto.int32_field(
+            7, optional=True, name="maxDynamicUniformBuffersPerPipelineLayout"
+        )
     )
     max_dynamic_storage_buffers_per_pipeline_layout: Optional[int] = (
-        betterproto.int32_field(8, optional=True)
+        betterproto.int32_field(
+            8, optional=True, name="maxDynamicStorageBuffersPerPipelineLayout"
+        )
     )
     max_sampled_textures_per_shader_stage: Optional[int] = betterproto.int32_field(
-        9, optional=True
+        9, optional=True, name="maxSampledTexturesPerShaderStage"
     )
     max_samplers_per_shader_stage: Optional[int] = betterproto.int32_field(
-        10, optional=True
+        10, optional=True, name="maxSamplersPerShaderStage"
     )
     max_storage_buffers_per_shader_stage: Optional[int] = betterproto.int32_field(
-        11, optional=True
+        11, optional=True, name="maxStorageBuffersPerShaderStage"
     )
     max_storage_textures_per_shader_stage: Optional[int] = betterproto.int32_field(
-        12, optional=True
+        12, optional=True, name="maxStorageTexturesPerShaderStage"
     )
     max_uniform_buffers_per_shader_stage: Optional[int] = betterproto.int32_field(
-        13, optional=True
+        13, optional=True, name="maxUniformBuffersPerShaderStage"
     )
     max_uniform_buffer_binding_size: Optional[int] = betterproto.int32_field(
-        14, optional=True
+        14, optional=True, name="maxUniformBufferBindingSize"
     )
     max_storage_buffer_binding_size: Optional[int] = betterproto.int32_field(
-        15, optional=True
+        15, optional=True, name="maxStorageBufferBindingSize"
     )
     min_uniform_buffer_offset_alignment: Optional[int] = betterproto.int32_field(
-        16, optional=True
+        16, optional=True, name="minUniformBufferOffsetAlignment"
     )
     min_storage_buffer_offset_alignment: Optional[int] = betterproto.int32_field(
-        17, optional=True
+        17, optional=True, name="minStorageBufferOffsetAlignment"
     )
-    max_vertex_buffers: Optional[int] = betterproto.int32_field(18, optional=True)
-    max_buffer_size: Optional[int] = betterproto.int32_field(19, optional=True)
-    max_vertex_attributes: Optional[int] = betterproto.int32_field(20, optional=True)
+    max_vertex_buffers: Optional[int] = betterproto.int32_field(
+        18, optional=True, name="maxVertexBuffers"
+    )
+    max_buffer_size: Optional[int] = betterproto.int32_field(
+        19, optional=True, name="maxBufferSize"
+    )
+    max_vertex_attributes: Optional[int] = betterproto.int32_field(
+        20, optional=True, name="maxVertexAttributes"
+    )
     max_vertex_buffer_array_stride: Optional[int] = betterproto.int32_field(
-        21, optional=True
+        21, optional=True, name="maxVertexBufferArrayStride"
     )
     max_inter_stage_shader_components: Optional[int] = betterproto.int32_field(
-        22, optional=True
+        22, optional=True, name="maxInterStageShaderComponents"
     )
     max_inter_stage_shader_variables: Optional[int] = betterproto.int32_field(
-        23, optional=True
+        23, optional=True, name="maxInterStageShaderVariables"
     )
-    max_color_attachments: Optional[int] = betterproto.int32_field(24, optional=True)
+    max_color_attachments: Optional[int] = betterproto.int32_field(
+        24, optional=True, name="maxColorAttachments"
+    )
     max_color_attachment_bytes_per_sample: Optional[int] = betterproto.int32_field(
-        25, optional=True
+        25, optional=True, name="maxColorAttachmentBytesPerSample"
     )
     max_compute_workgroup_storage_size: Optional[int] = betterproto.int32_field(
-        26, optional=True
+        26, optional=True, name="maxComputeWorkgroupStorageSize"
     )
     max_compute_invocations_per_workgroup: Optional[int] = betterproto.int32_field(
-        27, optional=True
+        27, optional=True, name="maxComputeInvocationsPerWorkgroup"
     )
     max_compute_workgroup_size_x: Optional[int] = betterproto.int32_field(
-        28, optional=True
+        28, optional=True, name="maxComputeWorkgroupSizeX"
     )
     max_compute_workgroup_size_y: Optional[int] = betterproto.int32_field(
-        29, optional=True
+        29, optional=True, name="maxComputeWorkgroupSizeY"
     )
     max_compute_workgroup_size_z: Optional[int] = betterproto.int32_field(
-        30, optional=True
+        30, optional=True, name="maxComputeWorkgroupSizeZ"
     )
     max_compute_workgroups_per_dimension: Optional[int] = betterproto.int32_field(
-        31, optional=True
+        31, optional=True, name="maxComputeWorkgroupsPerDimension"
     )
 
 
 @dataclass(eq=False, repr=False)
 class BrowserSpeechSynthesis(betterproto.Message):
-    voice_uri: Optional[str] = betterproto.string_field(1, optional=True)
+    voice_uri: Optional[str] = betterproto.string_field(
+        1, optional=True, name="voiceURI"
+    )
     name: Optional[str] = betterproto.string_field(2, optional=True)
     lang: Optional[str] = betterproto.string_field(3, optional=True)
-    local_service: Optional[bool] = betterproto.bool_field(4, optional=True)
+    local_service: Optional[bool] = betterproto.bool_field(
+        4, optional=True, name="localService"
+    )
     default: Optional[bool] = betterproto.bool_field(5, optional=True)
 
 
@@ -834,28 +916,36 @@ class GpsLocation(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class Locale(betterproto.Message):
     language: Optional[str] = betterproto.string_field(1, optional=True)
-    country_iso: Optional[str] = betterproto.string_field(2, optional=True)
+    country_iso: Optional[str] = betterproto.string_field(
+        2, optional=True, name="countryISO"
+    )
 
 
 @dataclass(eq=False, repr=False)
 class SimCard(betterproto.Message):
-    phone_number: Optional[str] = betterproto.string_field(1, optional=True)
+    phone_number: Optional[str] = betterproto.string_field(
+        1, optional=True, name="phoneNumber"
+    )
     """With or without country code?"""
 
-    mcc: Optional[str] = betterproto.string_field(2, optional=True)
+    mcc: Optional[str] = betterproto.string_field(2, optional=True, name="MCC")
     """Provider and country information"""
 
-    mnc: Optional[str] = betterproto.string_field(3, optional=True)
+    mnc: Optional[str] = betterproto.string_field(3, optional=True, name="MNC")
     carrier: Optional[str] = betterproto.string_field(4, optional=True)
-    country_iso: Optional[str] = betterproto.string_field(5, optional=True)
-    country_code: Optional[str] = betterproto.string_field(6, optional=True)
+    country_iso: Optional[str] = betterproto.string_field(
+        5, optional=True, name="countryISO"
+    )
+    country_code: Optional[str] = betterproto.string_field(
+        6, optional=True, name="countryCode"
+    )
     imei: Optional["SimCardImei"] = betterproto.message_field(7, optional=True)
     meid: Optional["SimCardMeid"] = betterproto.message_field(8, optional=True)
 
 
 @dataclass(eq=False, repr=False)
 class SimCardImei(betterproto.Message):
-    tac: Optional[str] = betterproto.string_field(1, optional=True)
+    tac: Optional[str] = betterproto.string_field(1, optional=True, name="TAC")
     imei: Optional[str] = betterproto.string_field(2, optional=True)
     """
     src: https://en.wikipedia.org/wiki/International_Mobile_Equipment_Identity
@@ -866,8 +956,12 @@ class SimCardImei(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class SimCardMeid(betterproto.Message):
-    region_code: Optional[str] = betterproto.string_field(1, optional=True)
-    manufacturer_code: Optional[str] = betterproto.string_field(2, optional=True)
+    region_code: Optional[str] = betterproto.string_field(
+        1, optional=True, name="RegionCode"
+    )
+    manufacturer_code: Optional[str] = betterproto.string_field(
+        2, optional=True, name="ManufacturerCode"
+    )
     meid: Optional[str] = betterproto.string_field(3, optional=True)
     """
     src: https://en.wikipedia.org/wiki/Mobile_equipment_identifier
@@ -878,7 +972,7 @@ class SimCardMeid(betterproto.Message):
 
 @dataclass(eq=False, repr=False)
 class Mac(betterproto.Message):
-    oui: Optional[str] = betterproto.string_field(1, optional=True)
+    oui: Optional[str] = betterproto.string_field(1, optional=True, name="OUI")
     address: Optional[str] = betterproto.string_field(2, optional=True)
 
 
@@ -891,18 +985,26 @@ class Timezone(betterproto.Message):
 @dataclass(eq=False, repr=False)
 class ScreenData(betterproto.Message):
     density: Optional[int] = betterproto.int32_field(1, optional=True)
-    resolution_horizontal: Optional[int] = betterproto.int32_field(2, optional=True)
-    resolution_vertical: Optional[int] = betterproto.int32_field(3, optional=True)
+    resolution_horizontal: Optional[int] = betterproto.int32_field(
+        2, optional=True, name="resolutionHorizontal"
+    )
+    resolution_vertical: Optional[int] = betterproto.int32_field(
+        3, optional=True, name="resolutionVertical"
+    )
 
 
 @dataclass(eq=False, repr=False)
 class CpuData(betterproto.Message):
     arch: Optional["CpuDataArchitecture"] = betterproto.enum_field(1, optional=True)
-    arch_name: Optional[str] = betterproto.string_field(2, optional=True)
+    arch_name: Optional[str] = betterproto.string_field(
+        2, optional=True, name="archName"
+    )
     model: Optional[str] = betterproto.string_field(3, optional=True)
     brand: Optional[str] = betterproto.string_field(4, optional=True)
     board: Optional[str] = betterproto.string_field(5, optional=True)
-    abi_list: List[str] = betterproto.string_field(6, optional=True)
+    abi_list: Optional[List[str]] = betterproto.string_field(
+        6, optional=True, name="abiList"
+    )
 
 
 @dataclass(eq=False, repr=False)
@@ -926,8 +1028,12 @@ class AndroidDevice(betterproto.Message):
     locale: Optional["Locale"] = betterproto.message_field(7, optional=True)
     location: Optional["GpsLocation"] = betterproto.message_field(8, optional=True)
     timezone: Optional["Timezone"] = betterproto.message_field(9, optional=True)
-    mac_address: Optional["Mac"] = betterproto.message_field(10, optional=True)
-    sim_slots: List["SimCard"] = betterproto.message_field(11, optional=True)
+    mac_address: Optional["Mac"] = betterproto.message_field(
+        10, optional=True, name="macAddress"
+    )
+    sim_slots: Optional[List["SimCard"]] = betterproto.message_field(
+        11, optional=True, name="simSlots"
+    )
 
 
 @dataclass(eq=False, repr=False)
@@ -949,23 +1055,29 @@ class AndroidDeviceBuildData(betterproto.Message):
     id: Optional[str] = betterproto.string_field(8, optional=True)
     manufacturer: Optional[str] = betterproto.string_field(9, optional=True)
     model: Optional[str] = betterproto.string_field(10, optional=True)
-    odm_sku: Optional[str] = betterproto.string_field(11, optional=True)
+    odm_sku: Optional[str] = betterproto.string_field(11, optional=True, name="odmSku")
     product: Optional[str] = betterproto.string_field(12, optional=True)
     sku: Optional[str] = betterproto.string_field(13, optional=True)
-    soc_manufacturer: Optional[str] = betterproto.string_field(14, optional=True)
-    soc_model: Optional[str] = betterproto.string_field(15, optional=True)
+    soc_manufacturer: Optional[str] = betterproto.string_field(
+        14, optional=True, name="socManufacturer"
+    )
+    soc_model: Optional[str] = betterproto.string_field(
+        15, optional=True, name="socModel"
+    )
     tags: Optional[str] = betterproto.string_field(16, optional=True)
     type: Optional[str] = betterproto.string_field(17, optional=True)
-    incremental_version: Optional[str] = betterproto.string_field(18, optional=True)
+    incremental_version: Optional[str] = betterproto.string_field(
+        18, optional=True, name="incrementalVersion"
+    )
 
 
 @dataclass(eq=False, repr=False)
 class AndroidDeviceDeviceSoftware(betterproto.Message):
-    software_meta_data: Dict[str, str] = betterproto.map_field(
-        1, betterproto.TYPE_STRING, betterproto.TYPE_STRING
+    software_meta_data: Optional[Dict[str, str]] = betterproto.map_field(
+        1, betterproto.TYPE_STRING, betterproto.TYPE_STRING, optional=True
     )
-    app_meta_data: Dict[str, str] = betterproto.map_field(
-        2, betterproto.TYPE_STRING, betterproto.TYPE_STRING
+    app_meta_data: Optional[Dict[str, str]] = betterproto.map_field(
+        2, betterproto.TYPE_STRING, betterproto.TYPE_STRING, optional=True
     )
     """app package : version string"""
 
