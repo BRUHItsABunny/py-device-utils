@@ -1,6 +1,7 @@
 from deviceutils import Browser, BrowserTlsFingerprint, BrowserTlsFingerprintProtocolVersion, \
     BrowserTlsFingerprintEllipticCurvePointFormat, BrowserTlsFingerprintEllipticCurve
-
+from typing import Any, Dict, Optional
+import random
 DB_BROWSERS = {
     "brave": {
         "1.50.114": Browser(
@@ -140,3 +141,18 @@ AVAILABLE_BROWSERS = [
     "opera",
     "safari"
 ]
+
+def get_random_key(collection: Dict[str, Any]) -> str:
+    keys = list(collection.keys())
+    return random.choice(keys)
+
+
+def random_browser_version_by_name(name: str) -> Optional[Browser]:
+    if name in DB_BROWSERS:
+        return DB_BROWSERS[name][get_random_key(DB_BROWSERS[name])]
+    return None
+
+
+def random_browser() -> Browser:
+    browser_name = get_random_key(DB_BROWSERS)
+    return DB_BROWSERS[browser_name][get_random_key(DB_BROWSERS[browser_name])]
