@@ -7,11 +7,12 @@ requirements = [
     "betterproto @ git+https://github.com/ii64/python-betterproto.git#egg=betterproto",
     "grpclib~=0.4.7",
     "pydantic>=1.8.0,<2"
+    "aiohttp>=3.9.4",
 ]
 
 setup(
     name="deviceutils",
-    version="1.0.4",
+    version="1.0.5",
     author="BRUHItsABunny",
     author_email="",
     description="Android utilities all in one spot, python",
